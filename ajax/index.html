@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+    $('button').on('click', function() {
+        $('.conteudo').load('nomes.json', function(data) {
+            console.log('foo');
+            console.log(data);
+
+            var d = JSON.parse($(this).text());
+            console.log(d);
+
+            d.nomes.forEach((e, i) => console.log(e, i));
+
+        });
+    });
+});
+</script> 
+</head>
+<body>
+
+<button>Começar requisição</button>
+
+<p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+
+<div class="conteudo"></div>
+
+</body>
+</html>

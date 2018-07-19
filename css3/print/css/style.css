@@ -1,0 +1,14 @@
+/* body {
+    -webkit-print-color-adjust: exact !important;
+} */
+.blue {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+}
+
+@media print { 
+    .blue {
+        background-color: red;
+    }
+}

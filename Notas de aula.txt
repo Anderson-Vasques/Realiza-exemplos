@@ -1,0 +1,244 @@
+Notas de Aula
+   ——
+600, 400 e 200, respectivamente "slow", "normal” e "fast"
+
+Jquery:
+
+
+	Encadeamento de metodos:
+	O jQuery permite que varias acoes sejam feitas em cadeia para um elemento. Estamos acostumados a escrever uma ação por linha para o mesmo elemento, mas existe uma forma mais pratica de fazer:
+	$("#p1").css("color", "red”);
+	$("#p1").slideUp(2000)
+	$("#p1”).css(“height”, “auto”)
+	$("#p1").show();
+		|
+		|
+	        \/
+	$("#p1").css("color", "red").slideUp(2000).css(“height”, “auto”).show();
+	Dessa maneira o browser não precisa procurar varias vezes o mesmo elemento no html(DOM)
+
+
+	Animações: 	
+	Remover um elemento da tela (display:none)
+    	$("p").hide();
+	$("p").hide(‘slow/fast’);
+	$("p").hide(1000);
+	$("p").hide(1000, function() {
+		console.log(‘Essa mensagem irá aparecer somente quando o elemento desaparecer, ou seja, vai demorar um segundo para essa função ser executada’)
+	});
+
+	Em algumas situações queremos alternar os estados show e hide. Nesses casos podemos usar o método toggle:
+	$(“p”).toggle();  —> Se o elemento estiver visível, vai fazer o elemento desaparecer. Se o elemento não estiver visível, vai fazer o elemento desaparecer.
+	$("p").hide(‘slow/fast’);
+	$("p").hide(1000);
+	$("p").hide(1000, function() {
+		console.log(‘Essa mensagem irá aparecer somente quando o elemento desaparecer/aparecer, ou seja, vai demorar um segundo para essa função ser executada’)
+	});
+
+	
+	Mostrar um elemento na tela (display:block)
+	$("p").show();
+	$(“p”).show(‘slow/fast’);
+	$("p").show(1000);
+	$("p").show(1000, function() {
+		console.log(‘Essa mensagem irá aparecer somente quando o elemento desaparecer, ou seja, vai demorar um segundo para essa função ser executada’)
+	});
+	$("p").show(‘fast’, function() {
+		console.log(‘Essa mensagem irá aparecer somente quando o elemento desaparecer, ou seja, vai demorar um segundo para essa função ser executada’)
+	});
+
+	O ELEMENTO IRÁ APARECER AOS POUCOS NA TELA.
+	$(“#foobar”).fadeIn();
+	$(“#foobar”).fadeIn(1000);
+	$(“#foobar”).fadeIn(1000, function() {
+		console.log(‘Essa função só vai ser executada depois de animação terminar, ou seja, após 1 segundo’);
+	});
+	
+	As mesmas regras valem para o fadeOut(), que serve para fazer o elemento desvanecer;
+
+	Em algumas situações queremos alternar os estados fadeIn e fadeOut. Nesses casos podemos usar o método fadeToggle:
+	$(“#foobar”).fadeToggle(7000, function() {
+		console.log(‘Essa função só vai ser executada depois de animação terminar, ou seja, após 7 segundos’);
+	});
+	Se o elemento estiver visível, o fadeToggle vai fazer o mesmo que o fadeToggle. Caso o elemento não esteja visível, fadeToggle vai fazer o mesmo que o fadeIn,
+
+
+
+	IMPORTANTE:
+	Aparentemente o fade(In/Out) e o show/hide (com o parametro de duração) fazem a mesma coisa. Notem que o resultado final é o mesmo, mas a maneira com que chegam a esse resultado é diferente.
+	O (fadeIn)fadeOut anima a porcentagem de opacidade do elemento(0 até 1). Durante a animação o espaço do elemento é completamente ocupado, e no fim da animação ele vai ser removido de uma vez só.
+	O (show)hide anima a porcentagem de opacidade do elemento(0 até 1) mas também o tamanho do elemento(0% até 100%). Isso faz com que o espaço ocupado seja animado.
+
+
+	Para animar um elemento até uma, usamos o fadeTo:
+	$( "#book" ).fadeTo( "slow" , 0.5, function() {
+		console.log(‘Essa função só vai ser executada depois de animação terminar, ou seja, após 7000 segundos’);
+	});
+
+
+	Podemos animar a altura de um elemento usando as funções slideUp, slideDown e slideToggle:
+	$( "#book" ).slideUp( "slow" , function() {
+		console.log(‘Essa função só vai ser executada depois de animação terminar, ou seja, após 600 milesegundos’);
+	});
+	$( "#book" ).slideDown( 4000 , function() {
+		console.log(‘Essa função só vai ser executada depois de animação terminar, ou seja, após 4 segundos’);
+	});
+	
+	$( "#book" ).slideToggle( "4000" , function() {
+		console.log(‘Essa função só vai ser executada depois de animação terminar, ou seja, após 4 segundos’);
+		console.log(‘slideToggle vai alternar entre slideUp e slideDown’);
+	});
+
+	slideUp anima a altura do elemento, fazendo com que os elementos abaixo sejam deslocados. Uma vez que o height chegue a 0 a propriedade display fica com o valor none.
+	
+
+	O elemento terá sua opacidade e posição left mudada progressivamente, durante 5segundos
+	$( "#foobar" ).animate({
+    		opacity: 0.25,
+    		left: "+=50",
+		height: "toggle"
+	  }, 5000, function() {
+    		console.log(‘Essa função só vai ser executada depois de animação terminar, ou seja, após 5 segundos’);
+	  })
+
+	O metodo stop pode ser usado caso se deseje parar uma animação ou efeito antes do final (exemplos práticos).
+	(exemplos de callback)
+
+	
+
+	HTML:
+	Caso queira pegar o texto de um block, é possível usar o método text:
+	<p id=“foobar”>Lorem</p>
+	$(“#foobar”).text() //retorna Lorem
+	OBS: caso coloquemos como parametro do método text uma string “Hey”, o texto do elemento será substituído pelo valor da string
+	
+	As vezes podemos querer pegar o html de um bloco. Nesse caso devemos usar o método html:
+		<div id=“bar”>
+			<p id=“foobar”>Lorem</p>
+		</div>
+	$(“#bar”).html() //<p id=“foobar”>Lorem</p>
+	OBS: caso coloquemos como parametro do método html uma string “Hey”, o html dentro do elemento será substituído pelo valor da string
+    <input type="text">
+    <input type="email">
+    <input foobar="barfoo">
+	$('input[type="email"]');
+    $('input[foobar="barfoo"]');
+
+    $('[foobar]');
+
+	O metodo attr serve para que acessemos os atributos dos elementos. Ex:
+	<a href=“http://www.pudim.com.br”>Pudim</a>
+	$(‘a’).attr(‘href’) //retorna uma string contendo http://www.pudim.com.br
+	$(‘a’).attr(‘title’) //retorna undefined
+	$(‘a’).attr(‘title’, ‘um lindo titulo’) // Faz com que o a fique da seguinte maneira:  <a href=“http://www.pudim.com.br” title=“um lindo titulo”>
+	$(‘a’).attr(‘foobar’, ‘o que afinal de contas significa foobar???’) // Faz com que o a fique da seguinte maneira:  <a href=“http://www.pudim.com.br” title=“um lindo titulo” foobar=“o que afinal de contas significa foobar???”>
+
+	De maneira simplificada a mesma tarefa poderia ser realizada da seguinte maneira: 
+	$(‘a’).attr({
+		“title”, “um lindo titulo”
+		“foobar”:  “o que afinal de contas significa foobar???”
+	}) // Faz com que o a fique da seguinte maneira:  <a href=“http://www.pudim.com.br” title=“um lindo titulo”, foobar=“o que afinal de contas significa foobar???”>
+
+
+	O metodo val serve para pegarmos o value dos elementos de input e textarea. Ex:
+	<input type=“email” name=“email”> //suponha que o usuário digitou “meuemail@gmail.com”
+	$(‘input type=“email”’).val() // retorna “meuemail@gmail.com”
+	$(‘input).val() // retorna “meuemail@gmail.com”
+	$(‘input name=“email”’).val() // retorna “meuemail@gmail.com”
+	$(‘input name=“email”’).val(‘Isso não é um email válido’) //  muda o valor digitado pelo usuário para ‘Isso não é um email válido’
+
+
+	Adicionando conteúdo e elementos:
+	append  —> Adiciona conteúdo no final do elemento selecionado
+	prepend —> Adiciona conteúdo no começo do elemento selecionado
+	after       —> Adiciona conteúdo após o elemento selecionado
+	before    —> Adiciona conteúdo antes o elemento selecionado
+
+	<p></p>
+	$(‘p’).append(‘Meu nome é ’) // <p>Meu nome é </p>
+	$(‘p’).append(‘Anderson’) // <p>Meu nome é Anderson</p>
+	
+	
+	<p>This is a paragraph.</p>
+	<div id="tx">
+		<p>asdsada</p>
+		<p>||||||</p>
+	</div>
+	<button onclick="appendText()">Append text</button>
+
+
+	function appendText() {
+  		// Create text with jQuery
+		var txt = document.createElement("p");
+		txt.innerHTML = "HEYEY."; 
+		$("#tx").append(txt);
+		//de maneira alternativa poderíamos ter simplificado fazendo o seguinte $(‘#tx’).append(‘<p>HEYEY</p>’);
+	}
+
+
+	Exercicios para criar uma TODO list, um formulário adiciona itens a lista. Para completar uma tarefa é necessário clicar no item. Só é possível remover um item que tenha sido completado (deve se clicar nele novamente.)
+
+	$(‘p’).remove() //REMOVE todos os <p> do documento
+	$("p").remove(".test, .demo"); //REMOVE todos os <p> com que tiverem pelo menos uma das classes (‘test’ ou ‘demo’);
+
+
+	Caso voce queira remover todos os filhos de um bloco:
+	<div id=“foobar”>
+		<p><a href=“#”>Link</a> Outro texto qualquer</p>
+		Lorem
+		<button>Hey<button>
+	</div>
+
+	$(‘#foobar’).empty(); // <div id=“foobar”></div>
+
+
+	adicionar/remover/aternar classes css
+
+	O método addClass vai adicionar uma ou mais classes ao elemento selecionado. Analogamente o método removeClass vai remover uma ou mais classes do elemento selecionado.
+
+	<div id=“foobar”>Lorem</div>
+	$(‘#foobar’).addClass(‘text-blue’) // <div id=“foobar” class=“text-blue”>Lorem</div>
+	$(‘#foobar’).addClass(‘flex shadow radius’) // <div id=“foobar” class=“text-blue flex shadow radius”>Lorem</div>
+
+	$(‘#foobar’).removeClass(‘flex shadow radius’) // <div id=“foobar” class=“text-blue ”>Lorem</div>
+
+	<div id=“foobar” class=“text-blue ”>Lorem</div>
+	$(‘#foobar’).toggleClass(‘flex shadow radius’); // <div id=“foobar” class=“text-blue flex shadow radius”>Lorem</div>
+	$(‘#foobar’).toggleClass(‘flex shadow radius’); //	<div id=“foobar” class=“text-blue ”>Lorem</div>
+	
+
+	Altura/Largura
+	https://www.w3schools.com/Jquery/jquery_dimensions.asp
+
+	Transversing:
+		Exemplo da DOM https://www.w3schools.com/Jquery/jquery_traversing.asp
+
+
+
+	AJAX = Asynchronous JavaScript and XML.
+	De maneira geral a ideia de usar AJAX é carregar dados o mostra-los na pagina sem ter que fazer reload na pagina inteira.
+	- Atualizar uma página sem fazer reload na página inteira
+	- Pegar dados do servidor depois que a página já carregou
+	- Enviar dados para o servidor (sem recarregar a página)
+	
+	JS PURO:
+	https://www.w3schools.com/js/js_ajax_http.asp
+	jQuery:
+	var request = $.ajax({
+		url: “url”,
+		method: "POST/GET“,
+		data: { id : menuId },
+		dataType: “JSON/HTML/ETC”
+	});
+ 
+	request.done(function( msg ) {
+		$( "#log" ).html( msg );
+	});
+ 
+	request.fail(function( jqXHR, textStatus ) {
+		alert( "Request failed: " + textStatus );
+	});
+
+
+
+

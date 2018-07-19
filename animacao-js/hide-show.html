@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+
+  <style>
+      #foo {
+          height: 200px;
+          width: 200px;
+          background-color: red;
+      }
+  </style>
+</head>
+<body>
+  <div id="foo">asdasdad</div>
+  <button id="esconder"> Esconder</button>
+  <button id="mostrar"> Mostrar</button>
+  <button id="alternar">Alternar</button>
+  <button id="esconder-animado">Esconder animado</button>
+  <button id="mostrar-animado">Mostrar animado</button>
+  <button id="fadein">FadeIn</button>
+  <button id="fadeout">FadeOut</button>
+  <button id="text">Texto</button>
+  <div id="bar">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, consequuntur eum saepe nesciunt quae aspernatur possimus omnis consectetur facere sunt rem esse sapiente ipsam perferendis, quis illum dolorem officia modi?
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <script>
+    $('#esconder').on('click', function() {
+      $('#foo').hide();
+    });
+    
+    $('#mostrar').on('click', function() {
+      $('#foo').show();
+    });
+    
+    $('#alternar').on('click', function() {
+        $('#foo').toggle(1000, function() {
+            alert('animacao completa');
+        });
+    });
+
+    $('#esconder-animado').on('click', function() {
+        $('#foo').hide(10000, function() {
+            alert('elemento terminou de ser animado');
+        });
+    });
+
+    $('#mostrar-animado').on('click', function() {
+        $('#foo').show(10000);
+    });
+
+    $('#fadein').on('click', function() {
+        $('#foo').fadeIn(3000);
+    });
+
+    $('#fadeout').on('click', function() {
+        $('#foo').fadeOut(10000, function() {
+            alert('demorou uma eternidade para essa animacao terminar')
+        });
+    });
+
+    $('#text').click(function() {
+       $('#bar').text("ola mundo");
+    });
+
+    
+  </script>
+</body>
+</html>

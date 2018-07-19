@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SlideUp, SlideDown, SlideToggle</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <style>
+        #foobar {
+            background-color: red;
+            height: 100px;
+        }
+    </style>
+    <script src="../jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#up').click(function(){)
+                $('#foobar').slideUp(1000, function() {
+                    alert('slideUp completo');
+                });
+            });
+
+            $('#down').click(function(){
+                $('#foobar').slideDown();
+            });
+
+
+
+            $('#toggle').click(function(){
+                $('#foobar').slideToggle(1000, function() {
+                    alert('slideToggle completo');
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="up">SlideUp</button>
+    <button id="down">SlideDown</button>
+    <button id="toggle">SlideToggle</button>
+    <div id="foobar">
+        <p>Hey oh, let`s go</p>
+    </div>
+
+
+</body>
+</html>

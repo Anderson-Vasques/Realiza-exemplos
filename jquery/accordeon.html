@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .hide {
+            display: none;
+        }
+        .accordeon-title {
+            display: block;
+            background-color: rgba(0,0,0,.03);
+            border-bottom: 1px solid rgba(0,0,0,.125);
+            padding: .75rem 1.25rem;
+        }
+        .accordeon-content {
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: 0 0 .25rem .25rem;
+            padding: .75rem 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="#foobar" class="accordeon-title">
+        Foobar
+    </a>
+    <div class="hide accordeon-content" id="foobar">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam suscipit vitae, omnis est beatae ipsa voluptates ut pariatur, dolor deleniti exercitationem ratione vero corrupti in harum? Necessitatibus nesciunt est qui.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam suscipit vitae, omnis est beatae ipsa voluptates ut pariatur, dolor deleniti exercitationem ratione vero corrupti in harum? Necessitatibus nesciunt est qui.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $('.accordeon-title').on('click', function(e) {
+            e.preventDefault();
+            var targetId = $(this).attr('href');
+            $(targetId).slideToggle('fast');
+        })
+    </script>
+</body>
+</html>
