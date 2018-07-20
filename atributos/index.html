@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input type="text" value="FOOBAR" placeholder="Digite algo aqui" />
+    <button id="showAttr">Mostrar atributos</button>
+
+    <hr>
+    <p>Adicione novos valores</p>
+    <p>
+        <label for="value">Novo valor</label>
+        <input type="text" id="value" placeholder="Digite o novo valor">
+    </p>
+    <p>
+        <label for="placeholder">Novo placeholder</label>
+        <input type="text" id="placeholder" />
+    </p>
+    <button id="applyNewValues">Enviar novos valores</button>
+
+    <script src="../jquery.js"></script>
+    <script>
+        (function() {
+            var el = $('#showAttr');
+            var applyNewValues = $('#applyNewValues')
+            var body = $('body');
+            var inputElement = $('input');
+            var newValue = $('#value');
+            var newPlaceholder = $('#placeholder');
+
+            el.on('click', function() {
+                var value = inputElement.val();
+                var placeholder = inputElement.attr('placeholder');
+                var attrValue = inputElement.attr('value');
+                console.log(`valor: ${value}, placeholder: ${placeholder}, valor(attr): ${attrValue}`);
+            });
+
+            applyNewValues.on('click', function() {
+                inputElement.attr('placeholder', newPlaceholder.val())
+                inputElement.val(newValue.val());
+            });
+
+
+        })()
+    </script>
+    
+</body>
+</html>
