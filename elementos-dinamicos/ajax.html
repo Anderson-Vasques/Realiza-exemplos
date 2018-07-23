@@ -5,25 +5,18 @@
 <script> 
 $(document).ready(function(){
     $('button').on('click', function() {
-        var ul = `<ul>`;
-        var img = $('<img src="img/loading.gif" />');
-        $('.conteudo').append(img);
-        $.get('https://jsonplaceholder.typicode.com/todos', function(data) {
-            console.log('>>>>>>>>>', data)
+        var ul = `<ul>`
+        /*$.get('https://jsonplaceholder.typicode.com/todos', function(data) {
             data.forEach((el) => {
                 ul += `<li>${el.title}`;
             });
             ul += '</ul>';
-            $('.conteudo').empty();
             $('.conteudo').append(ul);
-        }).fail(() => {
-            $('.conteudo').empty();
-            $('.conteudo').append('<h1>Parece que há um problema na sua conexão. Por favor tente novamente.</h1>');
-        })
+        });*/
         //loadDoc()
 
 
-        /*$.ajax({
+        $.ajax({
             url: "https://jsonplaceholder.typicode.com/todos",
             method: "GET",
             dataType: "JSON",
@@ -42,7 +35,7 @@ $(document).ready(function(){
             complete: function(jqXHR, textStatus ) {
                 console.log('complete', textStatus);
             }
-        });*/
+        });
     
     });
 
@@ -52,6 +45,12 @@ $(document).ready(function(){
 
     $('li').on('click', function() {
         console.log('clickedddd with on');
+    });
+
+    //$(staticAncestors).on(eventName, dynamicChild, function() {});
+
+    $('.conteudo').on('click', 'li', function() {
+        console.log('clicked with on (container binding)');
     });
 
 
@@ -74,12 +73,11 @@ $(document).ready(function(){
 </head>
 <body>
 
-<button>Carregar lista</button>
+<button>Começar requisição</button>
 
 <p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
 
-<div class="conteudo">
-</div>
+<div class="conteudo"></div>
 
 </body>
 </html>

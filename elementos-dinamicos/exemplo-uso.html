@@ -54,6 +54,12 @@ $(document).ready(function(){
         console.log('clickedddd with on');
     });
 
+    //$(staticAncestors).on(eventName, dynamicChild, function() {});
+
+    $('.conteudo').on('click', 'li', function() {
+        console.log('clicked with on (container binding)');
+    });
+
 
     /*function loadDoc() {
         var xhttp = new XMLHttpRequest();
