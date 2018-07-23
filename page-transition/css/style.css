@@ -1,0 +1,21 @@
+html, body {
+    min-height: 100%;
+}
+
+body.locked {
+    min-height: 100%;
+    overflow: hidden;
+}
+.loader {
+    background-color: aqua;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    height: 100%;
+    width: 100%;
+}
+
+.loader.out {
+    transform: translate(0, -100%);
+}
