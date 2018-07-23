@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemplos - before</title>
+    <style>
+        .content {
+            min-height: 200px;
+            background-color: red;
+            transition: .8s ease-in-out;
+            margin-bottom: 40px;
+            width: 200px;
+            position: relative;
+        }
+
+        .content.move {
+            transform: translate(0, 40px);
+        }
+
+        .content.green {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+    </div>
+    <br>
+    <hr>
+    <button id="addClass">addClass('move')</button>
+    <button id="addClass-move-green">addClass('move green')</button>
+    <button id="removeClass">removeClass('move')</button>
+    <button id="toggleClass">toggleClass('move')</button>
+    <button id="toggleClass-move-green">toggleClass('move green')</button>
+    <button id="hasClass">hasClass('move')</button>
+
+    <script src="../jquery.js"></script>
+    <script type="text/javascript">
+        var contentElement = $('.content');
+        $('#addClass').on('click', function() {
+            contentElement.addClass('move');
+        });
+
+        $('#removeClass').on('click', function() {
+            contentElement.removeClass('move');
+        });
+
+        $('#toggleClass').on('click', function() {
+            contentElement.toggleClass('move');
+        });
+
+        $('#toggleClass-move-green').on('click', function() {
+            contentElement.toggleClass('move green');
+        });
+
+        $('#addClass-move-green').on('click', function() {
+            contentElement.addClass('move green');
+        })
+
+        $('#hasClass').on('click', function() {
+            console.log(contentElement.hasClass('move'));
+            if(contentElement.hasClass('move')) {
+                alert(`contentElement.hasClass('move') retornou "true"`);
+            }
+        });
+
+    </script>
+</body>
+</html>

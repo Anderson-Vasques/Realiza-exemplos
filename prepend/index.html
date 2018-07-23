@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemplos - prepend</title>
+</head>
+<body>
+    <div class="content">
+        <p></p>
+    </div>
+
+    <button id="prepend1">prepend1</button>
+    <button id="prepend2">prepend2</button>
+
+    <script src="../jquery.js"></script>
+    <script type="text/javascript">
+        $('#prepend1').on('click', function() {
+            $('p').prepend('Meu nome é ') // <p>Meu nome é </p>
+        });
+
+        $('#prepend2').on('click', function() {
+            $('p').prepend('Anderson') // <p>Meu nome é Anderson</p>
+        });
+
+    </script>
+</body>
+</html>

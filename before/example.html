@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemplos - before</title>
+    <style>
+        .content {
+            min-height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+    </div>
+    <div class="content">
+    </div>
+    <br>
+    <hr>
+    <button id="before1">before1</button>
+    <button id="before2">before2</button>
+
+    <script src="../jquery.js"></script>
+    <script type="text/javascript">
+        $('#before1').on('click', function() {
+            $('.content').before('(1)o texto é adicionado ANTES do elemento selecionado') // <p>Meu nome é </p>
+        });
+
+        $('#before2').on('click', function() {
+            $('.content').before('<p>(2)Esse aqui também</p>') // <p>Meu nome é Anderson</p>
+        });
+
+    </script>
+</body>
+</html>

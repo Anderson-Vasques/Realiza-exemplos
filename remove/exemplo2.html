@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemplos - remove</title>
+</head>
+<body>
+    <div class="content">
+        <p>Esse elemento vai ser EXCLUÍDO DA DOM E DO HTML ao ser clicado</p>
+        <p>Esse elemento vai ser EXCLUÍDO DA DOM E DO HTML ao ser clicado</p>
+        <p>Esse elemento vai ser EXCLUÍDO DA DOM E DO HTML ao ser clicado</p>
+    </div>
+    <button id="remove">Remover paragrafo</button>
+
+    <script src="../jquery.js"></script>
+    <script type="text/javascript">
+        $('p').on('click', function() {
+            $(this).remove();
+        });
+    </script>
+</body>
+</html>

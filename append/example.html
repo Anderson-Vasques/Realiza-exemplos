@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemplos - Append</title>
+</head>
+<body>
+    <div class="content">
+        <ul>
+            <li>Primeiro item</li>
+            <li>Segundo item</li>
+            <li>Terceiro item</li>
+            <li>Quarto item</li>
+        </ul>
+    </div>
+
+    <script src="../jquery.js"></script>
+    <script type="text/javascript">
+        //forma mais simples de criar um elemento
+        var liElementv1 = "<li>Esse elemento deve ser adicionado ao final da lista</li>";
+        //usando javascript puro para criar um elemento. Esse metodo cria um elemento li vazio
+        var liElementv2 = document.createElement("li");
+        //aqui adicionamos o conteúdo de texto no elemento.
+        liElementv2.textContent = "Esse elemento deve ser adicionado ao final da lista";
+        //criando o elemento com jquery.
+        var liElementv3 = $('<li>Esse elemento deve ser adicionado ao final da lista</li>');
+        $('ul').append(liElementv1);
+        $('ul').append(liElementv2)
+        $('ul').append(liElementv3)
+    </script>
+</body>
+</html>

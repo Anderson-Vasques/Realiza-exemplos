@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemplos - after</title>
+    <style>
+        .content {
+            min-height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+    </div>
+    <br>
+    <hr>
+    <button id="after1">after1</button>
+    <button id="after2">after2</button>
+
+    <script src="../jquery.js"></script>
+    <script type="text/javascript">
+        $('#after1').on('click', function() {
+            $('.content').after('(1)o texto é adicionado DEPOIS do elemento selecionado') // <p>Meu nome é </p>
+        });
+
+        $('#after2').on('click', function() {
+            $('.content').after('<p>(2)Esse aqui também</p>') // <p>Meu nome é Anderson</p>
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemplos - empty</title>
+</head>
+<body>
+    <div class="content">
+        <p>Esse elemento vai ser EXCLUÍDO DA DOM E DO HTML ao clicar em "Esvaziar paragrafo"</p>
+    </div>
+    <button id="empty">Esvaziar paragrafo</button>
+
+    <script src="../jquery.js"></script>
+    <script type="text/javascript">
+        $('#empty').on('click', function() {
+            $('p').empty();
+        });
+    </script>
+</body>
+</html>
