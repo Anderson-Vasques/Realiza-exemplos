@@ -9,9 +9,10 @@ $(document).ready(function(){
         var img = $('<img src="img/loading.gif" />');
         $('.conteudo').append(img);
         $.get('https://jsonplaceholder.typicode.com/todos', function(data) {
+            $('#asd').template(data)
             console.log('>>>>>>>>>', data)
             data.forEach((el) => {
-                ul += `<li>${el.title}`;
+                ul += `<li>${el.title}</li>`;
             });
             ul += '</ul>';
             $('.conteudo').empty();
@@ -21,6 +22,18 @@ $(document).ready(function(){
             $('.conteudo').append('<h1>Parece que há um problema na sua conexão. Por favor tente novamente.</h1>');
         })
         //loadDoc()
+
+        /*$.ajax({
+            url: 'https://jsonplaceholder.typicode.com/todos',
+            method: 'GET', //POST
+            dataType: 'JSON',
+            success: function(data) {
+                console.log(data);
+            },
+            fail: function(jqXHR, textStatus) {
+                console.log(textStatus);
+            }
+        })/*
 
 
         /*$.ajax({

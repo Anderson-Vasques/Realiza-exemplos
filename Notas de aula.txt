@@ -14,7 +14,10 @@ Jquery:
 		|
 		|
 	        \/
-	$("#p1").css("color", "red").slideUp(2000).css(“height”, “auto”).show();
+	$("#p1").css("color", "red")
+		.slideUp(2000)
+		.css(“height”, “auto”)
+		.show();
 	Dessa maneira o browser não precisa procurar varias vezes o mesmo elemento no html(DOM)
 
 

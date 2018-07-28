@@ -15,14 +15,14 @@
     <script src="../jquery.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('#up').click(function(){)
+            $('#up').click(function(){
                 $('#foobar').slideUp(1000, function() {
                     alert('slideUp completo');
                 });
             });
 
             $('#down').click(function(){
-                $('#foobar').slideDown();
+                $('#foobar').slideDown(10000);
             });
 
 
