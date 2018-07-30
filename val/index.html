@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemplos - val</title>
+</head>
+
+    <body>
+        <div>
+            <form id="nameForm" action="api/sendName">
+                <label for="name">Digite seu nome: </label>
+                <input id="name" type="text" name="username" value="Anderson" />
+                <br>
+                <label for="msg">Digite sua mensagem: </label>
+                <textarea name="msg" id="msg" cols="30" rows="10">O textarea não tem atributo value. O texto que vai dentro do element/tag é seu value</textarea>
+            </form>
+            <button id="clear">Limpar</button>
+            <button id="show">Mostrar</button>
+        </div>
+
+        <script src="../jquery.js"></script>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
